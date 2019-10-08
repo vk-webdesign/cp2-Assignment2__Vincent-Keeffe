@@ -191,9 +191,7 @@ class seatPage extends Component {
             locationTimezone.textContent = data.timezone;
           });
       });
-    } else {
-      h1.textContent = "Please enable your browser's geolocation";
-    }
+    } 
   }
 
   render() {
@@ -250,9 +248,7 @@ class App extends Component {
           })
           .then(data => {});
       });
-    } else {
-      h1.textContent = "Please enable your browser's geolocation";
-    }
+    } 
   }
 
   constructor(props) {
