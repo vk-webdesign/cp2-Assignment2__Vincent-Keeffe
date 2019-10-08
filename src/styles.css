@@ -118,8 +118,6 @@ select {
   justify-content: space-around;
   align-items: center;
 }
-.temperature {
-}
 .degree-section {
   display: flex;
   align-items: center;
