@@ -1,7 +1,8 @@
+import React, from "react";
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
-import "./styles.css";
+//import "./style.css";
 
 class NamePage extends Component {
   render() {

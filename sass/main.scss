@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+//COLORS
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485; 
+
 .App {
   font-family: sans-serif;
   text-align: center;
@@ -37,11 +42,12 @@
 .name:focus {
   padding: 12px 20px;
   margin: 18px 0 0;
-  color: #406e8e;
+  //color: #406e8e;
+  color: $color-primary;
   font-weight: 800;
   font-size: 24px;
 
-  background-color: rgba(214, 229, 227, 0.4);
+  background-color: rgb(214, 229, 227);
 
   width: 100%;
   border: none;
@@ -83,7 +89,7 @@ button {
   border-radius: 50px;
   background-color: #406e8e;
 
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 29, 40, 0.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 29, 40, 0.05);
 }
 
 select {
@@ -93,7 +99,7 @@ select {
   padding: 16px 20px;
   border: none;
   border-radius: 4px;
-  background-color: rgb(64, 110, 142, 0.2);
+  background-color: rgb(64, 110, 142);
 
   font-size: 16px;
   color: #d6e5e3;
