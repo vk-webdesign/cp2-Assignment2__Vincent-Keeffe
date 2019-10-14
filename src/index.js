@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import "./style.css";
+import { log } from "util";
 
 const styles = {
   transition: 'all 1s ease-in'
@@ -48,7 +49,7 @@ class StartPage extends Component {
           <button onClick={() => this.props.goFunction(TrainPage)}>
             What is Evian Industries?
           </button>
-          <button onClick={() => this.props.goFunction(ShipPage)}>
+          <button onClick={() => this.props.goFunction(TrainPage)}>
             Okay…
             </button>
           </div>
@@ -188,55 +189,94 @@ class travelPage extends Component {
     return (
       <div className="page">
         <div className="play-area">
-        <p className="story">
-          Ah, seat {this.props.data.seat}, excelent choice. Right this way.
+          <p className="story">
+            Now tell me, how did you hear about us?
         </p>
-        <div className="btn-area">
-          <button onClick={() => this.props.goFunction(walkPage)}>Walk</button>
-          <button onClick={() => this.props.goFunction(walkPage)}>Run</button>
+          <select
+            value={this.props.data.seat}
+            onChange={event =>
+              this.props.setStateFunction("seat", event.target.id),
+              console.log(this.props.data.id)
+            }
+          >
+            <option id="cousin"> My cousin San told me about you…</option>
+            <option id="ad">I saw your advertisment on a public monitor.</option>
+            <option id="invite">I was invited by Sem, a division director</option>
+            <option id="cousin">I don't know! You kidnapped me!</option>
+          </select>
+          <div className="btn-area">
+            <button onClick={() => this.props.goFunction(resultPage)}>
+              Continue...
+          </button>
           </div>
-          </div>
+        </div>
       </div>
     );
   }
 }
 
-class walkPage extends Component {
+class resultPage extends Component {
   render() {
-    if (this.props.data.seat % 2 === 0) {
+    if (this.props.data.seat === "cousin") {
       return (
         <div className="page">
           <div className="play-area">
-          <p className="story">
-            Looking to the right for {this.props.data.seat}. Your walking
-            continues and eventually you stumble upon a booth with a plaque
-            reading {this.props.data.seat}.
+            <p className="story">
+              It's good to know our organization's services are trusted enough to be shared by family members.
           </p>
-          <div className="btn-area">
-            <button onClick={() => this.props.goFunction(seatPage)}>
-              Sit down
+            <div className="btn-area">
+              <button onClick={() => this.props.goFunction(seatPage)}>
+                Continue…
             </button>
             </div>
-            </div>
+          </div>
         </div>
       );
+    } else if (this.props.data.seat === "ad") {
+      return (
+        <div className="page">
+          <div className="play-area">
+            <p className="story">
+              Ah, I'm glad our marketing team isn't completely useless.
+          </p>
+            <div className="btn-area">
+              <button onClick={() => this.props.goFunction(seatPage)}>
+                Continue…
+            </button>
+            </div>
+          </div>
+        </div>
+      );
+    } else if (this.props.data.seat === "invite") {
+      return (
+        <div className="page">
+          <div className="play-area">
+            <p className="story">
+              Oh splendid, you'll fit right in.
+          </p>
+            <div className="btn-area">
+              <button onClick={() => this.props.goFunction(seatPage)}>
+                Continue…
+            </button>
+            </div>
+          </div>
+        </div>
+      )
     } else {
       return (
         <div className="page">
           <div className="play-area">
-          <p className="story">
-            Looking to the left for {this.props.data.seat}. Your walking
-            continues and eventually you stumble upon a booth with a plaque
-            reading {this.props.data.seat}.
+            <p className="story">
+              Don't worry about that. You'll be fine.
           </p>
-          <div className="btn-area">
-            <button onClick={() => this.props.goFunction(seatPage)}>
-              Sit down
+            <div className="btn-area">
+              <button onClick={() => this.props.goFunction(seatPage)}>
+                Continue…
             </button>
             </div>
-            </div>
+          </div>
         </div>
-      );
+      )
     }
   }
 }
@@ -270,7 +310,6 @@ class seatPage extends Component {
             //Set elements from API
             temperatureDegree.textContent = temperature;
             temperatureDescription.textContent = summary;
-            locationTimezone.textContent = data.timezone;
           });
       });
     } 
@@ -280,24 +319,20 @@ class seatPage extends Component {
     return (
       <div className="page">
         <div className="play-area">
-        <p className="story">
-          As you take your seat, you notice the spectacular weather out of the
-          window. Looking down at your phone it says:
-        </p>
-        <div className="weatherApp">
-          <div className="location">
-            <h1 className="location-timezone">Loading Weather…</h1>
-          </div>
-          <div className="temperature">
-            <div className="degree-section">
-              <h2 className="temperature-degree">00</h2>
-              <span>F</span>
+        <p className="story story-app">
+          As you take your seat, you wonder what weather is as you fear to never experience it again. Looking down at your phone it says:              
+            <div className="weatherApp">
+              <div className="temperature">
+                <div className="degree-section">
+                  <h2 className="temperature-degree">00</h2>
+                  <span>F</span>
+                </div>
+                <div className="temperature-description">enable geolocation</div>
+              </div>
             </div>
-            <div className="temperature-description">enable geolocation</div>
-          </div>
-        </div>
+        </p>
         <div className="btn-area">
-          <button onClick={() => this.props.goFunction(walkPage)}>
+          <button onClick={() => this.props.goFunction(NamePage)}>
             Look up
           </button>
           </div>

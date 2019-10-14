@@ -48,10 +48,10 @@ select {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 30%;
+  width: 50%;
   text-align: left;
 
-  border: 2px solid black;
+  border: 2px solid var(--color-primary-dark);
   border-radius: 4px;
 }
 

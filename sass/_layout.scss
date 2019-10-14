@@ -71,6 +71,12 @@
 
   flex-grow: 1;
 
+  &-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   &:before {
     content: '';
     display: block;
