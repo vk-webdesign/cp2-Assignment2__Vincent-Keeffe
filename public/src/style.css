@@ -1,9 +1,27 @@
+:root {
+  --color-primary: #eb2f64;
+  --color-primary-light: #FF3366;
+  --color-primary-dark: #BA265D;
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
 *,
 *:before,
 *:after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; }
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
 
 .App {
   font-family: sans-serif;
@@ -23,11 +41,27 @@
   color: #161925;
   background: radial-gradient(farthest-corner at 40px 40px, #8ea8c3, transparent), radial-gradient(farthest-corner at 85% 98%, #23395b, transparent); }
 
+.story {
+  height: 30vh;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; }
+
+.nameStory {
+  font-family: sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  text-align: left;
+  line-height: 46px;
+  color: #161925; }
+
 .name,
 .name:focus {
   padding: 12px 20px;
   margin: 18px 0 0;
-  color: #55c57a;
+  color: var(--color-primary);
   font-weight: 800;
   font-size: 24px;
   background-color: #d6e5e3;
@@ -39,35 +73,6 @@
 .name::placeholder {
   font-weight: 300;
   color: #8ea8c3; }
-
-.story {
-  height: 30vh;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center; }
-
-.btn-area {
-  display: flex;
-  height: 8vh; }
-
-button {
-  cursor: pointer;
-  height: 50px;
-  margin-top: 50px;
-  margin-left: 10px;
-  margin-right: 10px;
-  padding: 0px 30px 0px 30px;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 1px;
-  font-size: 12.5px;
-  color: #d3e5e3;
-  border: none;
-  border-radius: 50px;
-  background-color: #406e8e;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 29, 40, 0.05); }
 
 select {
   position: inline;
@@ -111,10 +116,23 @@ select {
 .location-timezone {
   font-size: 25px; }
 
-.nameStory {
-  font-family: sans-serif;
-  font-size: 36px;
-  font-weight: 600;
-  text-align: left;
-  line-height: 46px;
-  color: #161925; }
+.btn-area {
+  display: flex;
+  height: 8vh; }
+
+button {
+  cursor: pointer;
+  height: 50px;
+  margin-top: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 0px 30px 0px 30px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 12.5px;
+  color: var(--color-primary);
+  border: none;
+  border-radius: 50px;
+  background-color: #406e8e;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 29, 40, 0.05); }
